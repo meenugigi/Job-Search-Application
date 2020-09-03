@@ -1,7 +1,7 @@
 CS50 FINAL PROJECT
 
-Click here for live demo: http://meenugigi2497.pythonanywhere.com/
-click here for demo video: https://youtu.be/q1bF6bfpmaY
+- Click here for live demo: http://meenugigi2497.pythonanywhere.com/
+- click here for demo video: https://youtu.be/q1bF6bfpmaY
 
 
 To run Application:
