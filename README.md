@@ -81,4 +81,10 @@ Walkthrough of the code:
 
 - static/myapp --> contains static files like image files and css files used in the application.
 
+To run Application:
+- open cmd
+- navigate to project folder (on cmd)
+- type 'pip install -r requirements.txt'
+- type 'python manage.py runserver'
+
 Application Demo Link: https://youtu.be/q1bF6bfpmaY
