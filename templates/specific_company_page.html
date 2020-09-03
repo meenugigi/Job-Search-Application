@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block title %}
+    Project3
+{% endblock %} 
+{% block content %}
+{% load static %}
+
+<style type="text/css">
+  
+  #column2 {
+    background-color: #bfbfbf;
+  }
+</style>
+
+<div id="row1">
+  <div id="column1">
+<center>
+{% for details in details %}
+<font family="Arial"><center><h1><b>{{ details.company_name }}<br></b></h1></center></font>
+
+<div id="align">
+<h5><b>About us:</b> <font color="#004080" size="4px">{{ details.about_us }}<br></font><br>
+
+<b>Company type:</b> <font color="#004080" size="4px">{{ details.companytype }}<br></font><br>
+<b>Company strength:</b> <font color="#004080" size="4px">{{ details.strength }}<br></font><br>
+<b>Contact us on: </b> <font color="#004080" size="4px">{{ details.email }}<br></font><br>
+<b>Visit us on: </b> <font color="#004080" size="4px">{{ details.our_offical_website }}<br></font><br>
+<b>Available posts:</b> <font color="#004080" size="4px">{{ details.availableposts }}<br></font><br>
+<b>We are recruiting:</b> <font color="#004080" size="4px">{{ details.our_requirements}}<br></font><br>
+<b>No of vacacies:</b> <font color="#004080" size="4px">{{ details.vacancies }}<br></font><br>
+
+</h5>
+
+<small><b>Posted On:</b> <font color="#004080" size="2px">{{ details.created }}</font><br>
+<b>Last Updated On:</b> <font color="#004080" size="2px">{{ details.updated }}<br></font><br></small>
+ <br><br>
+{% endfor %}
+</div>
+</div>
+
+    
+ <br><br>
+
+ <br>
+
+
+
+  
+<div id="column2">
+  <font color="#4d4d4d">
+ <b>Average Ratings: {{ Total }}<hr class="new2"></b>
+
+ {% for ratings in ratings %}
+ <b>by @{{ ratings.displayname }}<br></b>
+ <i>{{ ratings.email }}<br></i>
+ 
+ <b>Rated:</b> <i>{{ ratings.rating }}<br></i>
+ <b>Reviews left: <i></b>{{ ratings.review }}<br></i>
+ <small><b>Posted on:</b> {{ ratings.published_at }}</small><br>
+ <hr class="new1 ">
+ {% endfor %}
+</font>
+<br><br>
+
+
+
+Leave a review? <a href="{% url 'webuser:Ratings'  %}">Click here</a>
+</div>
+</div>
+
+ 
+        
+
+<br><br>
+
+
+{% endblock %}

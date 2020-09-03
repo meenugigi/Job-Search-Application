@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<b>Hey welcome Employer {{ user.username }}!</b>
+
+
+
+<a href="{% url 'index' %}">home</a>
+
+ <form method="post" id="employerForm" data-cities-url="{% url 'ajaxfilteravailableposts' %}" novalidate>
+
+
+  {% csrf_token %}
+  {% for field in form %}
+    <p>
+      {{ field.label_tag }}
+      {{ field }}
+      {% if field.help_text %}
+        <small style="color: grey"></small>
+      {% endif %}
+      {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+      {% endfor %}
+    </p>
+  {% endfor %}
+  <button type="submit">Sign up</button>
+</form>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $("#id_companytype").change(function () {
+      var url = $("#employerForm").attr("data-cities-url");  // get the url of the `load_cities` view
+      var companytypeId = $(this).val();  // get the selected country ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'companytype': companytypeId       // add the country id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_cities` view function
+          $("#id_availableposts").html(data);  // replace the contents of the city input with the data that came from the server
+        }
+      });
+
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

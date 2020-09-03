@@ -1,0 +1,69 @@
+{% extends "employerlayout.html" %}
+{% block title %}
+    Project3
+{% endblock %} 
+{% block content %}
+{% load static %}
+
+
+
+<div class="form">  
+ <form method="post" id="employerForm" data-cities-url="{% url 'employer:ajaxfilteravailableposts' %}" novalidate>
+<div id="note">
+<h3><b>Register your company with us<br></b></h3>
+On publishing, these details will be visible to everyone. You can edit/delete the details you have published from the home page. <br><small>(Note: You are only allowed to edit/delete details of companies registered by you.)</small></div><hr class="new1">
+
+  {% csrf_token %}
+  <table class="tab">
+  {% for field in form %}
+    <p>
+  <tr>
+   <td id="td">    {{ field.label_tag }}
+     </td><td>  {{ field }}</td> <td></td>
+ </tr> 
+      {% if field.help_text %}
+        <small style="color: grey"></small>
+      {% endif %}
+      {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+      {% endfor %}
+    </p>
+  {% endfor %}</table>
+  <br>
+  <button id="button" type="submit">Register Company</button>
+   <button onclick="myFunction()" id="button" type="submit">Update Details</button>
+</form>
+<br>
+<br>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $("#id_companytype").change(function () {
+      var url = $("#employerForm").attr("data-cities-url");  
+      var companytypeId = $(this).val();  // get the selected companytypeId from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                   
+        data: {
+          'companytype': companytypeId       
+        },
+        success: function (data) {   
+          $("#id_availableposts").html(data);  
+        }
+      });
+
+    });
+  </script>
+
+<script>
+function myFunction() {
+  alert("Update Sucessfull! Navigate to home page to view changes");
+}
+</script>
+
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block title %}
+    Project3
+{% endblock %} 
+{% block content %}
+{% load static %}
+
+
+{% for username in username %}
+{{ username }}
+{{ username.first_name }}<br>
+{{ company_name.last_name }}<br>
+{{ company_name.email }}<br>
+{{ company_name.document }}<br>
+{{ company_name.description }}<br>
+{{ company_name.uploaded_at }}<br>
+{{ company_name.fresher }}<br>
+
+{{ company_name.availableposts }}<br><br>
+<hr>
+{% endfor %}
+
+
+
+
+{{ message }}
+<div class="form">	
+	<div id="note">
+<h3><b>Leave a rating<br></b></h3>
+Once published, this data will no longer editable. The form will not be submitted if u enter an invalid Company name. </div><hr class="new1">
+  <form method="POST" class="post-form">  
+        {% csrf_token %}  
+        
+
+ <table class="tab">
+  {% for field in form  %}
+    {{ field.errors }}
+
+<tr>
+   <td id="td">  {{ field.label_tag }}</td><td> {{ field }} </td> <td></td>
+ </tr>
+  {% endfor %}
+  </table><br><br>
+    <button type="submit" class="save btn btn-default" id = "button" type="submit" >Publish</button><br><br>
+  </form>
+
+
+
+</div>
+{% endblock %}

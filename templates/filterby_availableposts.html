@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<option value="">---------</option>
+{% for availableposts in filterposts  %}
+<option value="{{ availableposts.pk }}">{{ availableposts.name }}</option>
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+welcome {{ user.username }}
+
+
+{% for employerdetails in employerdetails %}
+<ul>
+	<li>
+{{employerdetails }}
+
+
+{{ employerdetails.description }}<br>
+{{ employerdetails.document }}<br>
+{{ employerdetails.uploaded_at }}<br>
+{{ employerdetails.employer_name }}<br>
+</li>
+</ul>
+{% endfor %}
+</body>
+</html>

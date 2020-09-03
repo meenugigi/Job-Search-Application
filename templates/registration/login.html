@@ -1,0 +1,55 @@
+{% load static %}   
+     <link rel="stylesheet" type="text/css" href='{% static "myapp/register.css" %}' />
+{% load crispy_forms_tags %}
+<style>
+#box {
+  background-color: #d9d9d9;
+  width: 350px;
+  height: 240px;
+margin-top: 5%;
+  margin-left: 37%;
+  text-align: center;
+}
+</style>
+<div id="one">
+
+<div id="head">
+JobHunt
+</div>
+
+<div id="box">
+{% block content %}
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {% for error in form.non_field_errors %}
+        <p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+      {% endfor %}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endif %}
+  
+ <font color = "#00264d">     <h2>Log in</h2></font>
+ <font color = "#003366" size="4px">     <form method="post" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {{ form.username|as_crispy_field }}
+        {{ form.password|as_crispy_field }}<br>
+        <button id="button" type="submit" class="btn btn-primary">Log in</button></font>
+<br><br>
+<b><font color = "#00264d">Do not have an account yet?  <a href="{% url 'logout'  %}">Sign up!</a></font></b>
+      </form>
+    
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="two">
+  </div>
+{% endblock %}

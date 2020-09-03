@@ -1,0 +1,53 @@
+{% extends "employerlayout.html" %}
+{% block title %}
+    Project3
+{% endblock %} 
+{% block content %}
+{% load static %}
+
+<body>
+<center><h3><font color = "#000d1a">Below listed are the companies registered with us.</h3><br>
+
+
+
+
+{% for employerdetails in employerdetails %}
+<ul>
+	<li type="none">
+<a href="{% url 'employer:specific_companypage_employer' employerdetails.company_name %}"><h3><font color = "#00264d">{{ employerdetails }}</a></h3></font>
+
+<a href="{% url 'employer:update_form' employerdetails.pk%}"><small>(update)</small></a>
+<a href="{% url 'employer:delete_form' employerdetails.pk%}"><small>(delete)</small></a>
+
+<br><font color = "#003366">
+<b>About us:</b> {{ employerdetails.about_us }}<br>
+<b>Company type:</b> {{ employerdetails.companytype }}<br>
+<b>Strength:</b> {{ employerdetails.strength }} Employees<br>
+<b>Email:</b> {{ employerdetails.email }}<br>
+<b>Official Website:</b> {{ employerdetails.our_offical_website }}<br>
+<b>Available posts:</b> {{ employerdetails.availableposts }}<br>
+<b>Requirements:</b> {{ employerdetails.our_requirements }}<br>
+<b>No of vacancies:</b> {{ employerdetails.vacancies }}<br>	
+<b>Published on:</b> {{ employerdetails.created }}<br>
+
+
+	</li>
+
+
+</ul><hr class="new2">
+{% endfor %}
+
+</center>
+<br>
+{% for uploads in uploads %}
+{{ uploads }}
+{% endfor %}
+
+
+
+</head>
+
+<body>
+
+
+{% endblock %}

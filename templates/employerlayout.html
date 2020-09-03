@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html style="height:100%">
+<head>
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ {% load static %}   
+     <link rel="stylesheet" type="text/css" href='{% static "myapp/mystyle.css" %}' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>    
+       <!-- BOOTSTRAP CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+        <!-- BOOTSTRAP JS (Last) -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>       
+
+</head>
+        {% block head %}
+        {% endblock %}        
+        <title>
+          CS Final Project: {% block title %}{% endblock %}
+        </title>
+    </head>
+<style>
+
+
+</style>
+
+
+
+<body class="body">
+
+<div id="columntwo">    
+ <div id="header">
+  JobHunt
+ </div> 
+</div>
+
+
+<div id="footer">
+  <p>Developed by Meenu Gigi</p>
+</div> 
+
+
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+ <center><img class="image" src='{% static "myapp/icons8-company-48.png" %}'> <font color="white"><h4>Welcome, {{ user.username }}</h4><small>This is an employer profile</small></font><hr class="new1"></center>
+ <a href="{% url 'employer:employerhome' %}">Home</a>
+ <a href="{% url 'employer:employerform' %}">Register your company</a>
+ <a href="{% url 'employer:filterapplications' %}">View receieved applications</a>
+ 
+  <a href="{% url 'logout'  %}">Logout</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰</button>  
+ 
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+   
+
+
+        {% block content %}
+        {% endblock %}
+
+</body>
+ 
+</html>

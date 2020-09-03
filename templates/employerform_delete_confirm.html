@@ -1,0 +1,26 @@
+{% extends "employerlayout.html" %}
+{% block title %}
+    Project3
+{% endblock %} 
+{% block content %}
+{% load static %}
+
+
+
+<nav aria-label="breadcrumb">
+  
+    
+    </ol>
+  </nav><center><br><br>
+  <h2 class="mb-3">Confirm deletion</h2>
+  <p class="lead">Are you sure you want to delete the this company details? <br>There is no going back.</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-lg">Yes, I'm sure</button>
+ 
+<a href="{% url 'employer:employerhome' %}" class="btn btn-success btn-lg" role="button">No, I'm not sure. Go Back</a>
+
+  </form>
+</center>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% load static %}   
+     <link rel="stylesheet" type="text/css" href='{% static "myapp/register.css" %}' />
+
+{% load crispy_forms_tags %}
+
+<style>
+body {
+  background-color: #00264d;
+}
+
+
+</style>  
+
+<body>
+<div id="head">
+JobHunt
+</div>
+      
+
+<div id="signupbox">
+{% block content %}
+ 
+<font color = "#00264d"> <h2>Sign up as {{ user_type }}</h2></font>
+<font color = "#003366" size="4px">       <form method="post" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {{ form|crispy }}
+        <button id="button" type="submit" class="btn btn-success">Sign up</button>
+      </form></font>
+   
+
+<center><b><font color = "#00264d"><h5>Already have an account? <a href="{% url 'login' %}">Log in</a></h5></font></b></center>
+
+</div>
+</body>
+{% endblock %}

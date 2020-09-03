@@ -1,0 +1,41 @@
+{% extends "employerlayout.html" %}
+{% block title %}
+    Project3
+{% endblock %} 
+{% block content %}
+{% load static %}
+
+<style>
+	#applications{
+		margin-left: 3%;
+		margin-top: 3%;
+	}
+	#name {
+		width: 200px;
+		font-size: 17px;
+		font-weight: bolder;
+		color: #001a33;
+	}
+	#content {
+		color: #003366;
+	}
+</style>
+
+<font color="#001a33"><center><h2>Applications recieved for your company</h2></center></font>
+<table id="applications"><tr>
+{% for company_name in company_name %}
+
+<td id="name">Applicant First name: </td><td id="content">{{ company_name.first_name }}</td></tr>
+<td id="name">Applicant Last name: </td><td id="content">{{ company_name.last_name }}</td></tr>
+<td id="name">Email ID: </td><td id="content"> {{ company_name.email }}</td></tr>
+<td id="name">Fresher: </td><td id="content">{{ company_name.fresher }}</td></tr>
+<td id="name">Resume Upload Path: </td><td id="content">{{ company_name.resume }}</td></tr>
+<td id="name">About applicant: </td><td id="content">{{ company_name.describe_yourself }}</td></tr>
+<td id="name">Application received at: </td><td id="content">{{ company_name.uploaded_at }}</td></tr>
+
+
+
+
+{% endfor %}
+</table><hr class="new2">
+{% endblock %}

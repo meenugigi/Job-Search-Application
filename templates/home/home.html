@@ -1,0 +1,27 @@
+{% load static %}   
+     <link rel="stylesheet" type="text/css" href='{% static "myapp/register.css" %}' />
+
+{% block content %}
+<style>
+
+</style>
+ 
+<div id="one">
+
+<div id="head">
+JobHunt
+</div>
+          
+
+
+
+ <center>
+    If you already have an account, go ahead and <a href="{% url 'login' %}">Log in</a>.<br> If you are new JobHunt, get started
+    by creating a <a href="{% url 'user_signup' %}">User Account</a> or a <a href="{% url 'employer_signup' %}">Employer Account</a>.
+  </center>
+ </div>
+
+
+ <div id="two">
+  </div>
+{% endblock %}

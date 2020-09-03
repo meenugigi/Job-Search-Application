@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}
+    Project3
+{% endblock %} 
+{% block content %}
+{% load static %}
+
+<style type="text/css">
+
+</style>
+
+
+<div class="form">	
+	<div id="note">
+	<h3><b>	Submit Job application<br></b></h3>
+Fill up this form and send your job application.
+You will receive an email notification on successfully submitting this form.</div><hr class="new1">
+<form method="post" enctype="multipart/form-data">
+ <table class="tab">
+
+ 	 {% csrf_token %}
+  {% for field in form  %}
+    {{ field.errors }}
+
+<tr>
+   <td id="td">  {{ field.label_tag }}</td><td> {{ field }} </td> <td></td>
+ </tr>
+  {% endfor %}
+  </table><br>
+ <small> Don't have a resume? <a href="{% url 'webuser:downloadtemplate'  %}"> Download our resume template</a></small><br>
+  <br>
+    <button id = "button" type="submit" >Send Application</button><br><br>
+  </form>
+{{ message }}
+</div>
+ 
+
+{% endblock %}

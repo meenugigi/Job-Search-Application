@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}
+    Project3
+{% endblock %} 
+{% block content %}
+{% load static %}
+
+<div id="companylist-head">
+<b>Following are the companies registered with us.</b><br>
+<h5>Click to view details.</h5>
+</div>
+
+
+<div id="company-names">
+{% for employerdetails in employerdetails %}
+<ul>
+	<li>
+<a href="{% url 'webuser:specificcompanypage' employerdetails.company_name %}">{{ employerdetails }}</a>
+	</li>
+</ul>
+{% endfor %}
+</div>
+
+{% endblock %}

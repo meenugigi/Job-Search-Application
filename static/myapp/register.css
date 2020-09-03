@@ -1,0 +1,121 @@
+ /* login.html page */
+
+
+#one {
+  background-color: #00264d;
+  height: 75%;
+
+}
+
+#two {
+   background-color: #999999;
+  height: 25%;
+}
+
+
+
+#head {
+  margin-left: 33%;
+  margin top: 33%;
+  color: #bfbfbf;
+  font-size: 120px;
+  font-family: Arial;
+  font-weight: bolder;
+}
+
+#button {
+  width: 100px;
+  height: 44px;
+  color: #bfbfbf;
+  background-color: #00264d;
+  font-size: 18px;
+}
+
+#button:hover {
+  background-color: #264d73;
+  color: white;
+}
+
+
+
+
+/* userhome.html page */
+ 
+#box {
+  background-color: #d9d9d9;
+  width: 350px;
+  height: 230px;
+margin-top: 6%;
+  margin-left: 37%;
+  text-align: center;
+}
+
+#one {
+  background-color: #00264d;
+  height: 75%;
+
+}
+
+#two {
+   background-color: #999999;
+  height: 25%;
+}
+
+#head {
+  margin-left: 33%;
+  margin top: 33%;
+  color: #bfbfbf;
+  font-size: 120px;
+  font-family: Arial;
+  font-weight: bolder;
+}
+
+#button {
+  width: 100px;
+  height: 44px;
+  color: #bfbfbf;
+  background-color: #00264d;
+  font-size: 18px;
+}
+
+#button:hover {
+  background-color: #264d73;
+  color: white;
+}
+
+center {
+  color: #b3b3b3;
+  font-size: 25px;
+  margin-top: 7%;
+}
+
+
+
+/* signup_form.html page */
+#head {
+  margin-left: 33%;
+  margin top: 33%;
+  color: #bfbfbf;
+  font-size: 120px;
+  font-family: Arial;
+  font-weight: bolder;
+}
+
+#signupbox {
+  background-color: #999999;
+  width: 560px;
+  padding: 30px;
+  margin-left: 28%;
+}
+#button {
+  width: 100px;
+  height: 44px;
+  color: #bfbfbf;
+  background-color: #00264d;
+  font-size: 18px;
+}
+
+#button:hover {
+  background-color: #264d73;
+  color: white;
+}

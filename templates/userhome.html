@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+   {% load static %}   
+     <link rel="stylesheet" type="text/css" href='{% static "myapp/mystyle.css" %}' />
+     
+<style>
+.body{
+   background-color: #001a33;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+ background-color:  #e6e6e6;
+  color: #00264d;
+  padding: 10px 15px;
+  border: none;
+}
+
+</style>
+
+<body class="body">
+
+<div id="top">
+
+
+
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <center><img class="image" src='{% static "myapp/icons8-user-40.png" %}'> <font color="white"><h3>Welcome, {{ user.username }}</h3><small>This is a user profile</small></font><hr class="new1"></center>
+  <a href="{% url 'webuser:userhome' %}">Search companies</a>
+  <a href="{% url 'webuser:infopage' %}">Company list</a>
+  <a href="{% url 'webuser:sendmail' %}">Send applications</a>
+  <a href="{% url 'webuser:Ratings'  %}">Leave a review</a>
+  <a href="{% url 'webuser:downloadtemplate'  %}">Download our resume template</a>
+  <a href="{% url 'logout'  %}">Logout</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Menu</button>   
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+
+
+
+<div id="head">
+JobHunt
+</div>
+
+
+
+<div id="search">
+<form action="{% url 'webuser:searchposts' %}" method="GET" value="{{request.GET.q}}">
+<input id="textsearch" type="text" name="q" value="{{request.GET.q}}" placeholder="Search by company name"/>
+<input id="button" type="submit" name="submit" value="Search" />
+</form>
+</div>
+
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if results %}
+<div id="searchresults">
+<h1>Results for <b>{{ request.GET.q }}</b></h1>
+<br/><br/>
+
+</div>
+
+{% for result in results %}
+<div id="result">
+<a href="{% url 'webuser:specificcompanypage' result.company_name %}">{{result.company_name}}</a>
+<br/>
+
+{{result.email}}
+</div>
+<br/><hr>
+
+{% endfor %}
+{% else %}
+<div id="result">
+No search results for this query
+</div>
+{% endif %}
+{% endif %}
+
+
+</div>
+
+
+<div class="row">
+	<div class="mid">
+  <div class="column">
+    <div class="card">
+    	<img class="image" src='{% static "myapp/job.png" %}'>
+      <h3>We have millions of jobs for you.</h3>
+      <p>Discover jobs</p>
+     <p>Rate a company</p>
+    </div>
+  </div>
+ <div class="column">
+    <div class="card">
+    	<img class="image" src='{% static "myapp/resume.png" %}'>
+      <h3>Don't have a resume?</h3>
+      <p>We provide resume templates</p>
+     <p>Download for free!</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+    	<img class="image" src='{% static "myapp/hire.png" %}'>
+      <h3>Are you hiring?</h3>
+      <p>Post jobs for free</p>
+     <p>Receive applications</p>
+    </div>
+  </div>
+  
+ 
+  
+ </div> 
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+ {% load static %}   
+     <link rel="stylesheet" type="text/css" href='{% static "myapp/mystyle.css" %}' />
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <center><img class="image" src='{% static "myapp/icons8-user-40.png" %}'> <font color="white"><h4>Welcome, {{ user.username }}</h4><small>This is a user profile</small></font><hr class="new1"></center>
+  <a href="{% url 'webuser:userhome' %}">Search companies</a>
+  <a href="{% url 'webuser:infopage' %}">Company list</a>
+  <a href="{% url 'webuser:sendmail' %}">Send applications</a>
+  <a href="{% url 'webuser:Ratings'  %}">Leave a review</a>
+  <a href="{% url 'webuser:downloadtemplate'  %}">Download our resume template</a>
+  <a href="{% url 'logout'  %}">Logout</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Menu</button>   
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+<style type="text/css">
+    div.solid {border-style: solid;}
+</style>
+
+
+
+<div class="content-footer">
+    <button class="button" id="btn-export" onclick="exportHTML();">Export to
+        word doc</button>
+</div>
+<br><br>
+<div id="source-html" class="solid">
+<div id="title">
+    <h1>(Applicant Name)</h1>
+    <h3>(Designation)</h3>
+    <h4>Career Objective: _________________________________________________________________________</h4>
+</div><hr class="new2">
+
+
+<div id="row">
+
+    <p>
+    <h4> <u>WORK EXPERIENCE</u></h4> 
+    _____________________________________________________________________________________________________<br>
+    _____________________________________________________________________________________________________<br>
+    _____________________________________________________________________________________________________<br>
+    _____________________________________________________________________________________________________<br><br><hr class="new2">
+
+    </p><br>
+
+    <p>
+    <h4> <u>EDUCATION</u></h4> 
+    <b>Masters:</b> <br>
+    &nbsp &nbsp &nbspUniversity: (name)_____________________________<br>
+    &nbsp &nbsp &nbspCGPA: (enter grade)___________________________<br>
+    &nbsp &nbsp &nbspYear of Passing: (year)_________________________<br><br>
+
+    <b>Graduation:</b> <br>
+    &nbsp &nbsp &nbspUniversity: (name)_____________________________<br>
+    &nbsp &nbsp &nbspCGPA: (enter grade)___________________________<br>
+    &nbsp &nbsp &nbspYear of Passing: (year)_________________________<br><br>
+
+    <b>High School:</b> <br>
+    &nbsp &nbsp &nbspSchool: (name)_______________________________<br>
+    &nbsp &nbsp &nbspGrade: (enter grade)___________________________<br>
+    &nbsp &nbsp &nbspYear of Passing: (year)_________________________<br><br><hr class="new2">
+
+    </p><br>
+    <p>
+    <h4> <u>PROJECTS</u></h4> 
+    <b>(Project Title 1)</b> <br>
+    (Description)___________________________________<br>
+    ______________________________________________<br>
+    ______________________________________________<br><br>
+
+    <b>(Project Title 2)</b> <br>
+    (Description)___________________________________<br>
+    ______________________________________________<br>
+    ______________________________________________<br><br>
+
+    <b>(Project Title 3)</b> <br>
+    (Description)___________________________________<br>
+    ______________________________________________<br>
+    ______________________________________________<br><br><hr class="new2">
+
+
+    <p>
+    <h4> <u>SKILLS</u></h4> 
+
+    (skill 1)__________________________________   (skill 2)___________________________________<br>
+    (skill 3)__________________________________   (skill 4)___________________________________<br>
+    (skill 5)__________________________________   (skill 6)___________________________________<br><br><hr class="new2">
+    </p><br>
+
+    <p>
+    <h4> <u>PREVIOUS ORGANIZATIONS</u></h4> 
+
+    (details______________________________________________________________________________________________<br>
+     _____________________________________________________________________________________________________<br>
+    _____________________________________________________________________________________________________<br>
+    _____________________________________________________________________________________________________<br>
+    _____________________________________________________________________________________________________<br><br><hr class="new2">
+    </p><br>
+
+    <p>
+    <h4> <u>HONOURS & AWARDS</u></h4> 
+
+    (1)_____________________________________<br>
+    (2)_____________________________________<br>
+    (3)_____________________________________<br><br><hr class="new2">
+    </p><br>
+
+    <p>
+    <h4> <u>PERSONAL DETAILS</u></h4> 
+
+    (Name)____________________________________________<br>
+    (Address line 1)______________________________________<br>
+    (Address line 2)______________________________________<br>
+    (Email)_____________________________________________<br>
+    (Contact No)________________________________________<br><br><hr class="new2">
+
+    </p>
+
+</div>
+
+
+</div>
+<center><small>Resume Template by JobHunt.com</small></center>
+
+
+
+<script>
+    function exportHTML(){
+       var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' "+
+            "xmlns:w='urn:schemas-microsoft-com:office:word' "+
+            "xmlns='http://www.w3.org/TR/REC-html40'>"+
+            "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
+       var footer = "</body></html>";
+       var sourceHTML = header+document.getElementById("source-html").innerHTML+footer;
+       
+       var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+       var fileDownload = document.createElement("a");
+       document.body.appendChild(fileDownload);
+       fileDownload.href = source;
+       fileDownload.download = 'document.doc';
+       fileDownload.click();
+       document.body.removeChild(fileDownload);
+    }
+</script>
+
+

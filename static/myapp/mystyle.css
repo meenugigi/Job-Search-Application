@@ -1,0 +1,353 @@
+/* userhome.html page */
+
+#search {
+  margin-left: 32%;
+  margin-top: 5%;
+
+}
+
+
+@media screen and (max-width: 400px) {
+#search { 
+  margin-top: 5%;
+}
+}
+
+@media screen and (max-width: 400px) {
+#head {
+  margin-left: 3px
+  margin top: 30%;
+  color: #00264d;
+  font-size: 70px;
+  font-family: Arial;
+ 
+}
+}
+
+#head {
+  margin-left: 33%;
+  margin top: 30%;
+  color: #00264d;
+  font-size: 120px;
+  font-family: Arial;
+  font-weight: bolder;
+}
+
+#textsearch{
+  height: 40px;
+  width: 420px;
+  border-radius: 5px;
+  border-color: #00264d;
+}
+
+#button {
+  width: 100px;
+  height: 44px;
+  color: #bfbfbf;
+  background-color: #00264d;
+  font-size: 18px;
+}
+
+#button:hover {
+  background-color: #264d73;
+  color: white;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 20%;
+  padding: 0 6px;
+  margin-left: 130px;
+  margin-top: 50px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: white;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+#top {
+  height: 90%;
+  background-color: #cccccc;
+  width: 100%;
+}
+
+.mid {
+  height: 100px;
+  background-color: #cccccc;
+}
+
+#searchresults {
+  color: #00264d;
+  margin-left: 10px;
+
+}
+
+#result {
+  font-size: 18px;
+  color: #003366;
+  margin-left: 20px;
+}
+
+
+
+
+
+
+
+/* layout.html page */
+
+  
+.body{
+   background-color: #d9d9d9;
+}
+
+#header, #footer{
+    color: #bfbfbf;
+    height: 80px;
+  font-size: 60px; 
+  background-color:  #001a33;
+  text-align: center; 
+   font-family: Arial;
+   font-weight: bolder;
+}   
+
+
+   #footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   font-family: Calibri;
+   width: 100%;
+    font-size: 18px;
+   height: 30px;  
+}
+
+#columntwo {
+  float: left;
+  width: 100%;  
+  height: 0.1vh; 
+  color: white;   
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #000d1a;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #808080;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #001a33;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .2s;
+  padding: 16px;
+
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+
+
+
+/* infopage.html page */
+#companylist-head {
+  color: darkblue;
+  margin-left: 20px;
+  font-size: 25px;
+  padding: 20px;
+
+}
+
+#company-names {
+   margin-left: 20px;
+  font-size: 20px;
+  padding: 20px;
+  color: #004080;
+}
+
+
+
+
+
+
+/* apply.html page */
+
+@media (min-width: 700px){
+  .form{
+    text-align: center;
+    width: 700px;
+    height: 100%;
+    background-color: #004466;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    margin-left: 27%;
+    padding: 15px;
+  }
+
+@media (max-width: 699px){
+       .form { 
+    text-align: center;
+    margin-bottom: 5%;
+  }}
+
+.tab {
+  margin-left: 7%;
+  text-align: center;
+}
+
+#td, #note {
+  color: #a6a6a6;
+  font-size: 20px;
+}
+
+#note {
+  
+  color: #001a33;
+  font-size: 21px;
+
+}
+.button, #button {
+  width: 200px;
+  height: 44px;
+  color: white;
+  background-color:    #000d1a;
+  font-size: 18px;
+  border-color: #00264d;
+}
+
+.button:hover ,#button:hover {
+  background-color: #264d73;
+  color: white;
+}
+hr.new1 {
+  border-top: 1px solid #8c8c8c;
+}
+
+
+
+/* download_resume_template.html page */
+#title {
+  width: 100%;
+  height: 20%;
+
+}
+hr.new2 {
+  border-top: 4px solid #8c8c8c;
+}
+
+#row {
+  padding: 30px;
+  margin-left: 15px;
+}
+
+#column1{
+  float: left;
+  width: 80%;
+  padding: 10px;
+  height: 88vh;  
+  color: black;
+  text-align: left;
+}
+
+#column2 {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  height: 90vh; 
+ 
+  font-size: 15px;
+  text-align: left;
+}
+
+#row1:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/* specific_company_page.html page */
+
+#align {
+  text-align: left;
+
+}
